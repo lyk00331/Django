@@ -1,0 +1,37 @@
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>게시판</title>
+  <link rel="stylesheet" type="text/css" href="http://cafecj.daum-img.net/cafebackup/css/1/backup.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+</head>
+<body style="margin:2% 25%;padding:19px 29px 19px;border:1px solid #eeeeee;height:auto;">
+    <div>
+        <p style="font-size:19px;">자유 게시판</p>
+        <p style="color:#6e6e6e;font-size:13px;margin-top:-15px;margin-bottom:30px;">- 자유 게시판</p>
+        <div>
+            <table style="width: 100%;margin-top:-20px;border-top:1px solid #b0b0b0;">
+                <tr style="background:white;">
+                    <th>번호</th>
+                    <th><center>제목</center></th>
+                    <th><center>작성자</center></th>
+                    <th><center>작성일</center></th>
+                </tr>
+                <tbody>
+                    {% for board in board %}
+                    <tr onmouseover="this.style.background='#f8f8f8'" onmouseout="this.style.background='white'" style="border-bottom:1px solid #f7f7f7">
+                      <td style="font-size:11px;padding:9px 2px;">{{ board.id }}</td>
+                      <td style="font-size:13px;padding:9px 5px;"><a href= "{{ board.id }}/" style="Color:#000000;">{{ board.title }}</a></td>
+                      <td style="font-size:13px;padding:9px 5px;"><center>{{ board.writer }}</center></td>
+                      <td style="font-size:11px;padding:9px 5px;"><center>{{ board.time|date:"y.m.d"}}</center></td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a href="create/">
+            <input type="button" style="margin-top:19px;padding:6px 14px;Color:#ff5656;Background:#ffffff;font-size:13px;border:1px solid #e3e3e3;border-radius:2px;" value="글쓰기">
+        </a>
+    </div>
+</body>
+</html>

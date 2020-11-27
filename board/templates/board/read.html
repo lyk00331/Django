@@ -1,0 +1,28 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ board.title }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+</head>
+<body style="margin:2% 25%;padding:19px 29px 19px;border:1px solid #eeeeee;">
+    <div>
+        <a href="../">
+            <button style="padding:6px 14px;Color:#000000;Background:#ffffff;font-size:13px;border:1px solid #e3e3e3;border-radius:2px;">목록</button>
+        </a>
+        <a href="/board/{{ board.id }}/delete">
+            <button style="float: right;padding:6px 14px;Color:#ff5656;Background:#ffffff;font-size:13px;border:1px solid #e3e3e3;border-radius:2px;">삭제</button>
+        </a>
+        <a href="/board/{{ board.id }}/update">
+            <button style="float: right;padding:6px 14px;margin-right:5px;Color:#000000;Background:#ffffff;font-size:13px;border:1px solid #e3e3e3;border-radius:2px;">수정</button>
+        </a>
+        <hr>
+        <p style="color:#6e6e6e;font-size:14px;">자유 게시판</p>
+        <p style="font-size:20px;">{{ board.title }}</p>
+        <div style="margin-top:-15px">
+            <span style="font-size:13px;color:#333333"><strong>{{ board.writer }}</strong></span>
+            <span style="margin-left:4px;font-size:11px;color:#666666">{{ board.time|date:"y.m.d H:i" }}</span>
+        </div>
+        <p style="font-size:15px;padding-top:28px;width:100%">{{ board.content|linebreaksbr }}</p>
+    </div>
+</body>
+</html>
